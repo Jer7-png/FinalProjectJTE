@@ -12,7 +12,9 @@ public class Pankkitili implements Serializable {
     }
 
     public Pankkitili(double alkusaldo, int id) {
-        this.saldo = alkusaldo;
+        if (alkusaldo >= 0) {
+            this.saldo = alkusaldo;
+        }
         this.id = id;
         historia.addFirst(LocalDateTime.now() + " Tili luotiin saldolla " + alkusaldo);
     }
