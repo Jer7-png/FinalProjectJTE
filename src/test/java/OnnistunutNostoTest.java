@@ -6,7 +6,7 @@ public class OnnistunutNostoTest {
 
     @Test
     void testNosto() {
-        Pankkitili tili = new Pankkitili(50);
+        Pankkitili tili = new Pankkitili(50, 0);
         tili.nosto(10);
         assertEquals(40, tili.getSaldo());
     }

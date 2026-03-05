@@ -7,18 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class NostoSteps {
     Pankkitili tili;
 
-    @Given("tilillä on {int}")
-    public void tililla_on(int saldo) {
-        tili = new Pankkitili(saldo);
+    @Given("tilillä on {double}")
+    public void tililla_on(Double saldo) {
+        tili = new Pankkitili(saldo, 0);
     }
 
-    @When("yritän nostaa {int}")
-    public void yritan_nostaa(int nostoMaara) {
+    @When("yritän nostaa {double}")
+    public void yritan_nostaa(Double nostoMaara) {
         tili.nosto(nostoMaara);
     }
 
-    @Then("tilin uusi saldo on {int}")
-    public void tilin_uusi_saldo_on(int kohdeSaldo) {
+    @Then("tilin uusi saldo on {double}")
+    public void tilin_uusi_saldo_on(Double kohdeSaldo) {
         assertEquals(kohdeSaldo, tili.getSaldo());
     }
 

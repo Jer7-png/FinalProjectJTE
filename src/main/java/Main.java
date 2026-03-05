@@ -61,8 +61,8 @@ public class Main {
                     System.out.println("Anna alkusaldo: ");
                     String alkusaldo = scanner.next();
 
-                    Pankkitili uusiTili = new Pankkitili(Integer.parseInt(alkusaldo), count++);
-                    System.out.println("Tili luotu onnistuneesti saldolla " + Integer.parseInt(alkusaldo));
+                    Pankkitili uusiTili = new Pankkitili(Double.parseDouble(alkusaldo), count++);
+                    System.out.println("Tili luotu onnistuneesti saldolla " + Double.parseDouble(alkusaldo));
 
                     tilit.add(uusiTili);
                 }
@@ -105,13 +105,13 @@ public class Main {
                 if (Integer.valueOf(x).equals(1)) {
                     System.out.println("Nostomäärä: ");
                     String maara = scanner.next();
-                    valittuTili.nosto(Integer.parseInt(maara));
+                    valittuTili.nosto(Double.parseDouble(maara));
                     System.out.println("Nostettu onnistuneesti");
                 }
                 else if (Integer.valueOf(x).equals(2)) {
                     System.out.println("Talletusmäärä: ");
                     String maara = scanner.next();
-                    valittuTili.talleta(Integer.parseInt(maara));
+                    valittuTili.talleta(Double.parseDouble(maara));
                 }
                 else if (Integer.valueOf(x).equals(3)) {
                     System.out.println("Tapahtumahistoria: ");

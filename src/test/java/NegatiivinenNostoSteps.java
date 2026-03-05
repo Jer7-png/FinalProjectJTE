@@ -7,18 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class NegatiivinenNostoSteps {
     Pankkitili tili;
 
-    @Given("{int} tilillä")
-    public void tili(int saldo) {
-        tili = new Pankkitili(saldo);
+    @Given("{double} tilillä")
+    public void tili(Double saldo) {
+        tili = new Pankkitili(saldo, 0);
     }
 
-    @When("nosto {int}")
-    public void negatiivinen_nosto(int nostoMaara) {
+    @When("nosto {double}")
+    public void negatiivinen_nosto(Double nostoMaara) {
         tili.nosto(nostoMaara);
     }
 
-    @Then("{int} euroa tilillä")
-    public void tili_saldo(int kohdeSaldo) {
+    @Then("{double} euroa tilillä")
+    public void tili_saldo(Double kohdeSaldo) {
         assertEquals(kohdeSaldo, tili.getSaldo());
     }
 }

@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class EpaonnistunutNostoTest {
     @Test
     void testNosto() {
-        Pankkitili tili = new Pankkitili(50);
+        Pankkitili tili = new Pankkitili(50, 0);
         tili.nosto(60);
         assertEquals(50, tili.getSaldo());
     }

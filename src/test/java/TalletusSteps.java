@@ -7,18 +7,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TalletusSteps {
     Pankkitili tili;
 
-    @Given("alkusaldo {int}")
-    public void tili(int alkusaldo) {
-        tili = new Pankkitili(alkusaldo);
+    @Given("alkusaldo {double}")
+    public void tili(Double saldo) {
+        tili = new Pankkitili(saldo, 0);
     }
 
-    @When("talletetaan {int}")
-    public void talletus(int talletusMaara) {
+    @When("talletetaan {double}")
+    public void talletus(Double talletusMaara) {
         tili.talleta(talletusMaara);
     }
 
-    @Then("uusi saldo {int}")
-    public void uusi_saldo(int kohdeSaldo) {
+    @Then("uusi saldo {double}")
+    public void uusi_saldo(Double kohdeSaldo) {
         assertEquals(kohdeSaldo, tili.getSaldo());
     }
 }
