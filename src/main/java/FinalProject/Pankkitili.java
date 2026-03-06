@@ -1,5 +1,6 @@
+package FinalProject;
+
 import java.io.Serializable;
-import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.LinkedList;
 
@@ -17,14 +18,14 @@ public class Pankkitili implements Serializable {
         if (alkusaldo >= 0) {
             this.saldo = alkusaldo;
             this.id = id;
-            historia.addFirst(LocalDateTime.now() + " Tili luotiin saldolla " + alkusaldo);
+            historia.addFirst(LocalDateTime.now() + " Success: Tili luotiin saldolla " + alkusaldo);
 
         }
-        else if (alkusaldo < 0) {
+        else {
             System.out.println("Alkusaldo ei voi olla negatiivinen: tili luotu saldolla 0");
             this.saldo = 0;
             this.id = id;
-            historia.addFirst(LocalDateTime.now() + " Tili luotiin saldolla 0" );
+            historia.addFirst(LocalDateTime.now() + " Error: Tili luotiin saldolla 0" );
         }
 
 
@@ -32,7 +33,7 @@ public class Pankkitili implements Serializable {
     public Pankkitili(int id) {
         this.saldo = 0;
         this.id = id;
-        historia.addFirst(LocalDateTime.now() + " Tili luotiin saldolla 0");
+        historia.addFirst(LocalDateTime.now() + " Success: Tili luotiin saldolla 0");
     }
 
     public double getSaldo() {
@@ -46,23 +47,23 @@ public class Pankkitili implements Serializable {
     public void nosto(double nostoMaara) {
         if (saldo >= nostoMaara && nostoMaara > 0) {
             saldo -= nostoMaara;
-            historia.addFirst(LocalDateTime.now() + " Nostettiin " + nostoMaara);
+            historia.addFirst(LocalDateTime.now() + " Success: Nostettiin " + nostoMaara);
             System.out.println("Nostettiin: " + nostoMaara + " uusi saldo: " + saldo);
         }
         else if (nostoMaara < 0) {
-            System.out.println("Nostosumma ei voi olla negatiivinen. Saldo pysyy samana.");
+            System.out.println("Error: Nostosumma ei voi olla negatiivinen. Saldo pysyy samana.");
         }
         else if (nostoMaara > saldo) {
-            System.out.println("Et voi nostaa enemmän, kuin tilillä on. Saldo pysyy samana.");
+            System.out.println("Error: Et voi nostaa enemmän, kuin tilillä on. Saldo pysyy samana.");
         }
     }
     public void talleta(double talletusMaara) {
         if (talletusMaara > 0) {
             saldo += talletusMaara;
-            historia.addFirst(LocalDateTime.now() + " Talletettiin " + talletusMaara);
+            historia.addFirst(LocalDateTime.now() + "Success: Talletettiin " + talletusMaara);
             System.out.println("Talletettiin " + talletusMaara + " uusi saldo: " + saldo);
         }
-        else if (talletusMaara < 0) {
+        else {
             System.out.println("Et voi tallettaa negatiivista määrää. Käytä nostotoimintoa. Saldo pysyy samana.");
         }
     }

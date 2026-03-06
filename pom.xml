@@ -32,5 +32,34 @@
         </dependency>
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.pitest</groupId>
+                <artifactId>pitest-maven</artifactId>
+                <version>1.22.1</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.pitest</groupId>
+                        <artifactId>pitest-junit5-plugin</artifactId>
+                        <version>LATEST</version>
+                    </dependency>
+                </dependencies>
+                <configuration>
+                    <timestampedReports>true</timestampedReports>
+                    <targetClasses>
+                        <param>FinalProject.Pankkitili</param>
+                    </targetClasses>
+                    <targetTests>
+                        <param>FinalProject.*</param>
+                    </targetTests>
+
+                </configuration>
+            </plugin>
+        </plugins>
+
+
+    </build>
+
     
 </project>

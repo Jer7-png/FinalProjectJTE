@@ -1,6 +1,9 @@
+package FinalProject;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TalletaTest {
     @Test
@@ -8,21 +11,26 @@ public class TalletaTest {
         Pankkitili tili = new Pankkitili(50, 0);
         tili.talleta(30);
         assertEquals(80, tili.getSaldo());
+        assertTrue(tili.getHistoria().getFirst().contains("Success"));
 
     }
 
     @Test
     void testTalletusNeg() {
         Pankkitili tili = new Pankkitili(10, 0);
+        int historiaSize = tili.getHistoria().size();
         tili.talleta(-30);
         assertEquals(10, tili.getSaldo());
+        assertEquals(historiaSize, tili.getHistoria().size());
     }
 
     @Test
     void testTalletusNolla() {
         Pankkitili tili = new Pankkitili(30, 0);
+        int historiaSize = tili.getHistoria().size();
         tili.talleta(0);
         assertEquals(30, tili.getSaldo());
+        assertEquals(historiaSize, tili.getHistoria().size());
     }
 
     @Test
@@ -30,6 +38,7 @@ public class TalletaTest {
         Pankkitili tili = new Pankkitili(30, 0);
         tili.talleta(35.623514214);
         assertEquals(65.62351421, tili.getSaldo(), 0.01);
+        assertTrue(tili.getHistoria().getFirst().contains("Success"));
     }
 
     @Test
@@ -55,6 +64,7 @@ public class TalletaTest {
         tili.talleta(40);
         tili.talleta(50);
         assertEquals(30 + 40 + 50, tili.getSaldo());
+        assertTrue(tili.getHistoria().getFirst().contains("Success"));
     }
 
 }

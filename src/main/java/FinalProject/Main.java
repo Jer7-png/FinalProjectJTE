@@ -1,13 +1,13 @@
-
+package FinalProject;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     // Jaoin ohjelmaan useaan metodiin, että yksi metodi ei olisi liian pitkä.
     // Muutin myös count muuttujan staattiseksi, että se toimii oikein
+
     static int count = 0;
 
     public static void main(String[] args) throws IOException {
