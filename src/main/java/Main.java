@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        System.out.println("Welcome to the banking application! (admin mode)");
+
 
 
         File counter = new File("counter.txt");
@@ -36,33 +36,49 @@ public class Main {
         }
 
         while (true) {
+            System.out.println("\n");
+            System.out.println("Welcome to the banking application! (admin mode)");
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("1. Tee uusi tili");
             System.out.println("2. Hallitse tiliä");
             System.out.println("3. Exit");
 
+            // Lisäsin tarkituksen tänne ja myöhemmin, että inputtia ei voi laittaa väärin
+            if (!scanner.hasNextInt()) {
+                System.out.println("Invalid input");
+                continue;
+            }
             String input = scanner.next();
+
             if (Integer.valueOf(input).equals(1)) {
                 System.out.println("Tilin luonti");
                 System.out.println("1. Luo tyhjä tili");
                 System.out.println("2. Luo tili alkusaldolla");
 
+                if (!scanner.hasNextInt()) {
+                    System.out.println("Invalid input");
+                    continue;
+                }
+
                 String luontiInput = scanner.next();
 
                 if (Integer.valueOf(luontiInput).equals(1)) {
                     Pankkitili uusiTili = new Pankkitili(count++);
-                    System.out.println("Tili luotu onnistuneesti");
 
                     tilit.add(uusiTili);
 
                 }
                 else if (Integer.valueOf(luontiInput).equals(2)) {
                     System.out.println("Anna alkusaldo: ");
+
+                    if (!scanner.hasNextDouble()) {
+                        System.out.println("invalid input");
+                        continue;
+                    }
                     String alkusaldo = scanner.next();
 
                     Pankkitili uusiTili = new Pankkitili(Double.parseDouble(alkusaldo), count++);
-                    System.out.println("Tili luotu onnistuneesti saldolla " + Double.parseDouble(alkusaldo));
 
                     tilit.add(uusiTili);
                 }
@@ -85,6 +101,11 @@ public class Main {
                     System.out.println("tili(id): " + x.getId());
 
                 }
+
+                if (!scanner.hasNextInt()) {
+                    System.out.println("Invalid input");
+                    continue;
+                }
                 String valittuTiliId = scanner.next();
 
                 Pankkitili valittuTili = null;
@@ -100,16 +121,29 @@ public class Main {
                 System.out.println("2. Talleta");
                 System.out.println("3. Tapahtumahistoria");
 
+                if (!scanner.hasNextInt()) {
+                    System.out.println("invalid input");
+                    continue;
+                }
+
                 String x = scanner.next();
 
                 if (Integer.valueOf(x).equals(1)) {
                     System.out.println("Nostomäärä: ");
+
+                    if (!scanner.hasNextDouble()) {
+                        System.out.println("invalid input");
+                        continue;
+                    }
                     String maara = scanner.next();
                     valittuTili.nosto(Double.parseDouble(maara));
-                    System.out.println("Nostettu onnistuneesti");
                 }
                 else if (Integer.valueOf(x).equals(2)) {
                     System.out.println("Talletusmäärä: ");
+                    if (!scanner.hasNextDouble()) {
+                        System.out.println("invalid input");
+                        continue;
+                    }
                     String maara = scanner.next();
                     valittuTili.talleta(Double.parseDouble(maara));
                 }
