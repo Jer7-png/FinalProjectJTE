@@ -57,7 +57,7 @@ public class Main {
             String input = scanner.next();
 
             if (Integer.valueOf(input).equals(1)) {
-                uusiTili(scanner, count, tilit);
+                uusiTili(scanner, tilit);
             }
             else if (Integer.valueOf(input).equals(2)) {
                 hallitseTilia(scanner, tilit);
@@ -79,7 +79,7 @@ public class Main {
         objectOutputStream.close();
     }
 
-    static void uusiTili(Scanner scanner, int count, ArrayList<Pankkitili> tilit) throws IOException {
+    static void uusiTili(Scanner scanner, ArrayList<Pankkitili> tilit) throws IOException {
         System.out.println("Tilin luonti");
         System.out.println("1. Luo tyhjä tili");
         System.out.println("2. Luo tili alkusaldolla");
