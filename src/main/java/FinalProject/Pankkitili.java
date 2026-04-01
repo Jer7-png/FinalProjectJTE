@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 
 public class Pankkitili implements Serializable {
-    private int test;
+    private int test = 0;
     private double saldo;
     private int id;
     private LinkedList<String> historia = new LinkedList<>();
