@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Main {
     // Jaoin ohjelmaan useaan metodiin, että yksi metodi ei olisi liian pitkä.
     // Muutin myös count muuttujan staattiseksi, että se toimii oikein
+    // Linux test
 
     static int count = 0;
 
